@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "IBM Plex Mono", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --default-white: #ebf5ee;
+  --secondary-white: #ededed;
+  --third-white: #dedede;
+
+  --default-black: #070707;
+  --lighter-black: #151515;
+  --default-platinum: #e6e8e6;
+
+  --default-blue: #bfdbfe;
+  --darker-blue: #93c5fd;
+
+  font-size: 14px;
+}
+
+body,
+html {
+  min-height: 100vh;
+  background-color: var(--default-platinum);
+}
+
+a {
+  font-weight: 500;
+  color: var(--default-white);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--default-white);
+}
+
+.app {
+  height: 100vh;
+  display: grid;
+}
+
+.wrapper {
+  min-width: 20%;
+  min-height: 60%;
+  margin: auto;
+  border: 2px solid var(--default-black);
+  box-shadow: 0.6rem 0.6rem 1px var(--default-black);
+  /* padding: 0.8rem; */
+  border-radius: 0.6rem;
+  display: flex;
+}
+
+.pomodoro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper .pomodoro .timer {
+  font-size: 6rem;
+  font-weight: 600;
+}
+
+.side-todo > section {
+  width: 22rem;
+  height: 100%;
+  border-left: 2px solid var(--default-black);
+  padding: 2rem 2rem ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.default-btn {
+  border-radius: 0.6rem;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-weight: 700;
+  font-family: inherit;
+  background-color: var(--default-black);
+  color: var(--default-white);
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+
+.default-btn:active {
+  transform: scale(0.95);
+}
+
+.special-btn {
+  font-size: 2rem;
+  padding: 0.6rem 4rem;
+}
+
+.special-btn:hover {
+  background-color: var(--lighter-black);
+}
+
+.controllers {
+  margin: 0 0 1rem;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.menu-btn {
+  background-color: transparent;
+  color: var(--default-black);
+  padding: 0.4rem 1rem;
+}
+
+.menu-btn:hover {
+  background-color: #c2c2c2;
+}
+
+.active {
+  background-color: var(--default-blue);
+}
+
+.active:hover {
+  background-color: var(--darker-blue);
+}
