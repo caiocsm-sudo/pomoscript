@@ -49,17 +49,18 @@ a:hover {
 }
 
 .wrapper {
-  min-width: 20%;
+  min-width: 60%;
   min-height: 60%;
   margin: auto;
   border: 2px solid var(--default-black);
   box-shadow: 0.6rem 0.6rem 1px var(--default-black);
-  /* padding: 0.8rem; */
   border-radius: 0.6rem;
   display: flex;
+  justify-content: center;
 }
 
 .pomodoro {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,8 +72,11 @@ a:hover {
   font-weight: 600;
 }
 
+.side-todo {
+  width: 100%;
+}
+
 .side-todo > section {
-  width: 22rem;
   height: 100%;
   border-left: 2px solid var(--default-black);
   padding: 2rem 2rem ;
@@ -132,4 +136,10 @@ a:hover {
 
 .active:hover {
   background-color: var(--darker-blue);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
