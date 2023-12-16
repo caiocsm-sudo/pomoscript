@@ -25,7 +25,7 @@ function App() {
     }
 
     return () => clearInterval(interval);
-  }, [running, timer]);
+  }, [running, timer, sessionType]);
 
   console.log("renderizou: " + render.current++);
 
