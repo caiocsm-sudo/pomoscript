@@ -1,4 +1,5 @@
 import Todo from "./Todo";
+import { Add } from "@mui/icons-material";
 
 export default function SideBarTodo() {
   return (
@@ -10,7 +11,10 @@ export default function SideBarTodo() {
         <Todo title="Se foder" />
       </div>
       <div>
-        <button className="default-btn">Create Task</button>
+        <button className="default-btn flex-center">
+          <Add />
+          <span>Add Todo</span>
+        </button>
       </div>
     </section>
   );

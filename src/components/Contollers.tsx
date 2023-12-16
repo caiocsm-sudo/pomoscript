@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { SessionType } from "../types/SessionType";
+import { Refresh } from "@mui/icons-material";
 
 export default function Contollers({
   sessionType,
@@ -16,12 +17,12 @@ export default function Contollers({
 }) {
   const handleSessionControllers = (pomo: SessionType) => {
     setSessionType(pomo);
-    // setTimer(pomo === "work" ? 1500 : 300);
+    setTimer(pomo === "work" ? 1500 : 300);
     setRunning(false);
   };
 
   const handleReset = () => {
-    // setTimer(sessionType === "work" ? 1500 : 300);
+    setTimer(sessionType === "work" ? 1500 : 300);
     setRunning(false);
   };
 
@@ -48,8 +49,8 @@ export default function Contollers({
         >
           Break
         </button>
-        <button className="default-btn menu-btn" onClick={handleReset}>
-          Reset
+        <button className="default-btn menu-btn flex-center" onClick={handleReset}>
+          <Refresh />
         </button>
         <button className="default-btn menu-btn" onClick={handleTodoVisible}>Todo</button>
       </section>
