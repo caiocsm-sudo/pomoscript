@@ -16,6 +16,8 @@ export default function Timer({
 
   const fullTimer: string = `${minutes}:${seconds}`;
 
+  document.title = running ? `${fullTimer} Pomoscript` : "Pomoscript";
+
   const handlePauseAndResume = () => {
     setRunning(!running);
   };

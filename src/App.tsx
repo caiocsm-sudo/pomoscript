@@ -20,8 +20,12 @@ function App() {
         setTimer((prevTime: number) => prevTime - 1);
       }, 1000);
     } else if (timer === 0) {
-      setSessionType(sessionType == "work" ? "rest" : "work");
-      setTimer(sessionType === "rest" ? 300 : 1500);
+      // i don't know why this works and hard coding inside function doesn't
+      let newSession: SessionType = sessionType == "work" ? "rest" : "work";
+
+      setSessionType(newSession);
+      setTimer(newSession === "work" ? 1500 : 300);
+      setRunning(false);
     }
 
     return () => clearInterval(interval);

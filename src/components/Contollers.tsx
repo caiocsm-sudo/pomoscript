@@ -17,7 +17,7 @@ export default function Contollers({
 }) {
   const handleSessionControllers = (pomo: SessionType) => {
     setSessionType(pomo);
-    setTimer(pomo === "work" ? 1500 : 300);
+    setTimer(pomo === "work" ? 1500 : 30);
     setRunning(false);
   };
 
