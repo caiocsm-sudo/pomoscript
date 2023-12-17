@@ -5,6 +5,7 @@ import Timer from "./components/Timer";
 
 import { SessionType } from "./types/SessionType";
 import SideBarTodo from "./components/SideBarTodo";
+import { PagesContext, visiblePages } from "./context/PagesContext";
 
 function App() {
   const [sessionType, setSessionType] = useState<SessionType>("work");
@@ -20,7 +21,6 @@ function App() {
         setTimer((prevTime: number) => prevTime - 1);
       }, 1000);
     } else if (timer === 0) {
-      // i don't know why this works and hard coding inside function doesn't
       let newSession: SessionType = sessionType == "work" ? "rest" : "work";
 
       setSessionType(newSession);
@@ -35,27 +35,29 @@ function App() {
 
   return (
     <>
-      <section className={`app`}>
-        <div className="wrapper">
-          <div className="pomodoro">
-            <Contollers
-              sessionType={sessionType}
-              setTimer={setTimer}
-              setSessionType={setSessionType}
-              setRunning={setRunning}
-              setVisible={setVisible}
-            />
-            <Timer timer={timer} setRunning={setRunning} running={running} />
-          </div>
-          {visible ? (
-            <div className="side-todo">
-              <SideBarTodo />
+      <PagesContext.Provider value={visiblePages}>
+        <section className={`app`}>
+          <div className="wrapper">
+            <div className="pomodoro">
+              <Contollers
+                sessionType={sessionType}
+                setTimer={setTimer}
+                setSessionType={setSessionType}
+                setRunning={setRunning}
+                setVisible={setVisible}
+              />
+              <Timer timer={timer} setRunning={setRunning} running={running} />
             </div>
-          ) : (
-            ""
-          )}
-        </div>
-      </section>
+            {visiblePages.sideBar.visible ? (
+              <div className="side-todo">
+                <SideBarTodo />
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </section>
+      </PagesContext.Provider>
     </>
   );
 }
