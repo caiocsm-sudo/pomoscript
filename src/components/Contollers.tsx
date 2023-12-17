@@ -1,6 +1,7 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { SessionType } from "../types/SessionType";
 import { Refresh } from "@mui/icons-material";
+import { PagesContext } from "../context/PagesContext";
 
 export default function Contollers({
   sessionType,
@@ -15,6 +16,8 @@ export default function Contollers({
   setRunning: Dispatch<SetStateAction<boolean>>;
   setVisible: Dispatch<SetStateAction<boolean>>;
 }) {
+  const pages = useContext(PagesContext);
+
   const handleSessionControllers = (pomo: SessionType) => {
     setSessionType(pomo);
     setTimer(pomo === "work" ? 1500 : 30);
@@ -26,9 +29,10 @@ export default function Contollers({
     setRunning(false);
   };
 
-  const handleTodoVisible = () => {
-    setVisible((prev: boolean) => !prev);
-  }
+  const handleTodoVisible = (): void => {
+    const { sideBar } = pages;
+    sideBar.visible = sideBar.visible == false ? true : false;
+  };
 
   return (
     <>
@@ -49,10 +53,15 @@ export default function Contollers({
         >
           Break
         </button>
-        <button className="default-btn menu-btn flex-center" onClick={handleReset}>
+        <button
+          className="default-btn menu-btn flex-center"
+          onClick={handleReset}
+        >
           <Refresh />
         </button>
-        <button className="default-btn menu-btn" onClick={handleTodoVisible}>Todo</button>
+        <button className="default-btn menu-btn" onClick={handleTodoVisible}>
+          Todo
+        </button>
       </section>
     </>
   );
